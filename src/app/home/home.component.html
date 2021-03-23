@@ -1,0 +1,31 @@
+<mat-toolbar>
+    
+    <span>My App</span>
+    <span class="example-spacer"></span>
+    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item><a [routerLink]="['/alunos']" routerLinkActive="active" class="nav-link">cadastrar Alunos</a></button>
+  <button mat-menu-item><a [routerLink]="['/professores']" routerLinkActive="active" class="nav-link">cadastrar Professores</a></button>
+  <button mat-menu-item><a [routerLink]="['/cursos']" routerLinkActive="active" class="nav-link">cadastrar Cursos</a></button>
+</mat-menu>
+  </mat-toolbar>
+  <div>
+     <!---- <spa-alunos [valorInicial]="valor"></spa-alunos>-->
+     
+      <button (click)="ExibirTabela()">Exibir Tabela</button>
+      <!--<input type="text" [(ngModel)]="valor">-->
+      {{valor}}
+      <table *ngIf="exibirTabela">
+          <tr>
+              <th>Nome</th>
+              <th>Idade</th>
+          </tr>
+          <tr *ngFor="let aluno of listaAlunos">
+              <td>{{aluno.nome}}</td>
+              <td>{{aluno.idade}}</td>
+
+          </tr>
+
+      </table>
+      
+  </div>
